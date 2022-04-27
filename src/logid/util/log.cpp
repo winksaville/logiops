@@ -32,9 +32,10 @@ void logid::logPrintf(LogLevel level, const char* format, ...)
     va_list vargs;
     va_start(vargs, format);
 
-    FILE* stream = stdout;
-    if(level == ERROR || level == WARN)
-        stream = stderr;
+    FILE* stream = stderr;
+    //FILE* stream = stdout;
+    //if(level == ERROR || level == WARN)
+    //    stream = stderr;
 
     fprintf(stream, "[%s] ", levelPrefix(level));
     vfprintf(stream, format, vargs);
